@@ -5,15 +5,16 @@
         <h3 class="panel-title">News of the date</h3>
     </div>
     <div class="panel-body">
-        <news-summary></news-summary>
-        <news-summary></news-summary>
+        <p *ngIf="!publicNews">No Public News</p>
+        <news-summary *ngFor="let news of publicNews" [newsSummary]="news"></news-summary>
     </div>
 </div>
 <div class="panel panel-default panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Company specific</h3>
+        <h3 class="panel-title">Company Private News</h3>
     </div>
     <div class="panel-body">
-        <news-summary></news-summary>
+        <p *ngIf="!privateNews">No Private News</p>
+        <news-summary *ngFor="let news of privateNews" [newsSummary]="news"></news-summary>
     </div>
 </div>

@@ -9,8 +9,19 @@ import { AppComponent } from './components/app/app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/shared/header/header.component'
 import { ChartComponent } from './components/shared/chart/chart.component'
+import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
+
 import { NewsListComponent } from './components/news/news-list/news-list.component'
 import { NewsSummaryComponent } from './components/news/news-summary/news-summary.component'
+import { NewsDetailComponent } from './components/news/news-detail/news-detail.component'
+
+import { FormatNewsDatePipe } from './components/shared/format-date.pipe'
+
+import { NewsService } from './components/shared/news.service'
+
+export function highchartsFactory() {
+    return require('highcharts');
+}
 
 
 @NgModule({
@@ -20,7 +31,9 @@ import { NewsSummaryComponent } from './components/news/news-summary/news-summar
         HeaderComponent,
         ChartComponent,
         NewsListComponent,
-        NewsSummaryComponent
+        NewsSummaryComponent,
+        NewsDetailComponent,
+        FormatNewsDatePipe
     ],
     imports: [
         CommonModule,
@@ -29,9 +42,17 @@ import { NewsSummaryComponent } from './components/news/news-summary/news-summar
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
+            { path: 'detail/:id', component: NewsDetailComponent },
             { path: '**', redirectTo: 'home' }
         ]),
-        ChartModule.forRoot(require('highcharts'))
+        ChartModule,
+    ],
+    providers: [
+        {
+            provide: HighchartsStatic,
+            useFactory: highchartsFactory
+        },
+        NewsService
     ]
 })
 export class AppModuleShared {

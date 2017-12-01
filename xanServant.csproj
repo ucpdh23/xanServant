@@ -22,11 +22,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\components\shared\format-date.pipe.ts" />
+    <None Remove="ClientApp\app\components\shared\news.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\components\news\news-detail\news-detail.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\news\news-summary\news-summary.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\news\news-list\news-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\shared\chart\chart.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\shared\format-date.pipe.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\shared\header\header.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\shared\news-summary.type.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\shared\news-type.enum.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\shared\news.service.ts" />
   </ItemGroup>
 
   <ItemGroup>

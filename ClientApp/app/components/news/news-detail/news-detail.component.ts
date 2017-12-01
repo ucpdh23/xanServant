@@ -1,11 +1,19 @@
 ﻿
-import { Component } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { OnInit, Component } from '@angular/core';
 
 @Component({
-    selector: 'news-summary',
-    templateUrl: './news-summary.component.html'
+    selector: 'news-detail',
+    templateUrl: './news-detail.component.html'
 })
-export class NewsSummaryComponent {
-    constructor() {
+export class NewsDetailComponent implements OnInit {
+    constructor(private activatedRoute: ActivatedRoute) { }
+
+    ngOnInit() {
+        // subscribe to router event
+        this.activatedRoute.params.subscribe((params: Params) => {
+            let id = params['id'];
+            alert(id);
+        });
     }
 }

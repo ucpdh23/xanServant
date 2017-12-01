@@ -1,11 +1,22 @@
 ﻿
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { NewsSummary } from '../../shared/news-summary.type'
+import { NewsType } from '../../shared/news-type.enum'
 
 @Component({
     selector: 'news-summary',
     templateUrl: './news-summary.component.html'
 })
 export class NewsSummaryComponent {
-    constructor() {
+    @Input() newsSummary: NewsSummary;
+
+    constructor(private router: Router) {
+        this.router = router;
+    }
+
+    navigateToDetail() {
+        this.router.navigate(["detail", "12345"]);
     }
 }
