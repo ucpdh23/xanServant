@@ -15,9 +15,16 @@ import { NewsListComponent } from './components/news/news-list/news-list.compone
 import { NewsSummaryComponent } from './components/news/news-summary/news-summary.component'
 import { NewsDetailComponent } from './components/news/news-detail/news-detail.component'
 
+import { AlertCreateComponent } from './components/alert/alert-create/alert-create.component'
+import { AlertListComponent } from './components/alert/alert-list/alert-list.component'
+import { AlertSummaryComponent } from './components/alert/alert-summary/alert-summary.component'
+import { AlertDetailComponent } from './components/alert/alert-detail/alert-detail.component'
+
 import { FormatNewsDatePipe } from './components/shared/format-date.pipe'
 
 import { NewsService } from './components/shared/news.service'
+import { AlertService } from './components/shared/alert.service'
+
 
 export function highchartsFactory() {
     return require('highcharts');
@@ -33,7 +40,11 @@ export function highchartsFactory() {
         NewsListComponent,
         NewsSummaryComponent,
         NewsDetailComponent,
-        FormatNewsDatePipe
+        FormatNewsDatePipe,
+        AlertCreateComponent,
+        AlertListComponent,
+        AlertSummaryComponent,
+        AlertDetailComponent
     ],
     imports: [
         CommonModule,
@@ -43,6 +54,9 @@ export function highchartsFactory() {
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'detail/:id', component: NewsDetailComponent },
+            { path: 'alert-detail/:id', component: AlertDetailComponent },
+            
+            { path: 'alert/create', component: AlertCreateComponent },
             { path: '**', redirectTo: 'home' }
         ]),
         ChartModule,
@@ -52,7 +66,8 @@ export function highchartsFactory() {
             provide: HighchartsStatic,
             useFactory: highchartsFactory
         },
-        NewsService
+        NewsService,
+        AlertService
     ]
 })
 export class AppModuleShared {

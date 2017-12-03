@@ -1,0 +1,24 @@
+﻿<form #f="ngForm"
+      (ngSubmit)="onSubmit(f.value)"
+      class="ui form">
+    <div class="form-group">
+        <label for="alert-name">Alert name</label>
+        <input type="text" class="form-control" id="alert-name" aria-describedby="emailHelp" name="name" placeholder="Enter name" ngModel>
+        <small id="emailHelp" class="form-text text-muted">Name of this alert</small>
+    </div>
+    <div class="form-group">
+        <label for="alert-abstract">Abstract</label>
+        <input type="text" class="form-control" id="alert-abstract" placeholder="Abstract" name="abstract" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="alert-description">Description</label>
+        <textarea class="form-control" id="alert-description" rows="3" name="description" ngModel></textarea>
+    </div>
+    <div class="form-check">
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input">
+            Check me out
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
